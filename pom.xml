@@ -11,16 +11,24 @@
   <description>Sample usages of PojoBuilder</description>
 
   <dependencies>
+    <!--
     <dependency>
       <groupId>net.karneim</groupId>
       <artifactId>pojobuilder</artifactId>
       <version>3.6.0</version>
       <scope>provided</scope>
     </dependency>
+    -->
     <dependency>
       <groupId>org.scala-lang</groupId>
       <artifactId>scala-library</artifactId>
       <version>2.11.7</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.auto.value</groupId>
+      <artifactId>auto-value</artifactId>
+      <version>1.2</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 
@@ -49,7 +57,7 @@
         <executions>
             <execution>
                 <id>scala-compile-first</id>
-                <phase>initialize</phase>
+                <phase>process-resources</phase>
                 <goals>
                     <goal>add-source</goal>
                     <goal>compile</goal>
@@ -77,10 +85,15 @@
                             <phase>generate-sources</phase>
                             <configuration>
                                 <processors>
+                                  <!--
                                     <processor>
                                         net.karneim.pojobuilder.processor.AnnotationProcessor
                                     </processor>
+                                  -->
+                                  <processor>com.google.auto.value.processor.AutoValueProcessor</processor>
+
                                 </processors>
+
                             </configuration>
                         </execution>
                     </executions>
