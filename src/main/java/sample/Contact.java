@@ -1,6 +1,7 @@
 package sample;
 
 import net.karneim.pojobuilder.GeneratePojoBuilder;
+import sample.anothernamespace.HelloWorld;
 
 @GeneratePojoBuilder
 public class Contact {
